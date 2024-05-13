@@ -51,3 +51,11 @@ Diese Seite sollte natürlich nur für eingeloggte Benutzer sichtbar sein. Hier 
 
 Bitte bearbeite anschließend die Aufgabe
 in Branch `task-5`.
+
+## Aufgabe 5
+Bei so vielen Daten scheint ein request nicht auszureichen. Bitte implementiere ein lazy loading für das Laden der Bestellungen.
+Hierfür kannst du die funktion `loadPart` im apiService verwenden.
+Für den Nutzer der Seite sollte ersichtlich sein, dass noch weitere Daten geladen werden.
+
+Vielen Dank für Deine Zeit. 
+Bitte schick mir (s.hansen@digital-h.de) den Link zu Deinem Repo.
