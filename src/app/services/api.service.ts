@@ -11,7 +11,7 @@ export class ApiService {
   public async store(data: Dto): Promise<void> {
     const currentData = await this.load();
     currentData.push(data);
-    localStorage.setItem(this.KEY, JSON.stringify(data));
+    localStorage.setItem(this.KEY, JSON.stringify(currentData));
   }
 
   public async load(): Promise<Dto[]> {
