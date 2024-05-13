@@ -26,3 +26,13 @@ Bitte erstelle ein Wizard für ein mehrseitiges Formular. Das Formular soll folg
 Die eingegebenen Werte sollen anschließend an den apiService übergeben und gespeichert werden. 
 
 Bitte bearbeite anschließend die Aufgabe in Branch `task-2`.
+
+## Aufgabe 2
+
+Es soll eine Möglichkeit entwickelt werden, dass die Daten vom Ticketinhaber auf die Page vom Rechnungsinhaber übernommen werden können und nicht erneut eingetragen werden müssen. 
+
+Bitte entwickle eine Checkbox oder Button "Ticketinhaber für Rechnungsinhaber übernehmen".
+
+Bitte bearbeite anschließend die Aufgabe 
+in Branch `task-3`.
+
