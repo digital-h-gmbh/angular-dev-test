@@ -43,3 +43,11 @@ Eine Auswahl nicht ist Pflicht, aber es kann maximal eine Option gewählt werden
 
 Bitte bearbeite anschließend die Aufgabe
 in Branch `task-4`.
+
+## Aufgabe 4
+
+Bei so vielen Bestellungen wird nun eine Übersicht benötigt. Bitte entwickle eine Seite, auf der alle getätigten Bestellungen in einer Tabelle angezeigt werden.
+Diese Seite sollte natürlich nur für eingeloggte Benutzer sichtbar sein. Hier reicht es wenn im localstorage ein wert `token` existiert.
+
+Bitte bearbeite anschließend die Aufgabe
+in Branch `task-5`.
