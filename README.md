@@ -36,3 +36,10 @@ Bitte entwickle eine Checkbox oder Button "Ticketinhaber für Rechnungsinhaber �
 Bitte bearbeite anschließend die Aufgabe 
 in Branch `task-3`.
 
+## Aufgabe 3
+
+Es soll eine weitere Page zwischen Ticketinhaber und Rechnungsinhaber geben. Auf dieser soll der Kunde die Möglichkeit haben ein "1.Klasse Upgrade" oder die Option "Fahrradmitnahme" auszuwählen.   
+Eine Auswahl nicht ist Pflicht, aber es kann maximal eine Option gewählt werden.
+
+Bitte bearbeite anschließend die Aufgabe
+in Branch `task-4`.
