@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MaybeNull } from '../../../types/maybe-null';
 import { IBillHolder, ITicketHolder } from '../../../services/dto.interface';
 import { NgTemplateOutlet } from '@angular/common';
@@ -12,7 +12,8 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule
   ],
   templateUrl: './order-summary.component.html',
-  styleUrl: './order-summary.component.scss'
+  styleUrl: './order-summary.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderSummaryComponent {
   @Input() ticketHolder: MaybeNull<ITicketHolder> = null;

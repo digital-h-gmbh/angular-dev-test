@@ -9,6 +9,7 @@ export interface Dto {
 export interface ITicketHolder {
   firstname: string,
   lastname: string,
+  adoptForBill: boolean,
 }
 
 export interface IBillHolder {

@@ -1,5 +1,14 @@
-import { Component, DestroyRef, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { BillHolderForm, IBillHolder } from '../../../services/dto.interface';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
+import { BillHolderForm, IBillHolder, ITicketHolder } from '../../../services/dto.interface';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -19,10 +28,12 @@ import { InputMaskModule } from 'primeng/inputmask';
     InputMaskModule
   ],
   templateUrl: './bill-holder-form.component.html',
-  styleUrl: './bill-holder-form.component.scss'
+  styleUrl: './bill-holder-form.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BillHolderFormComponent implements OnInit {
   @Input() formValue: MaybeNull<IBillHolder> = null;
+  @Input() ticketHolder: MaybeNull<ITicketHolder> = null;
   @Output() formChange = new EventEmitter<IBillHolder>;
   @Output() nextStep = new EventEmitter<void>();
   @Output() stepBack = new EventEmitter<void>();
@@ -38,6 +49,7 @@ export class BillHolderFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.populateFormValue();
+    this.populateTicketHolderData();
     this.initFormChangeListener();
   }
 
@@ -68,5 +80,15 @@ export class BillHolderFormComponent implements OnInit {
           this.formChange.emit(formValue);
         }
       });
+  }
+
+  private populateTicketHolderData(): void {
+    if (!this.ticketHolder?.adoptForBill) {
+      return;
+    }
+    this.formGroup.patchValue({
+      firstname: this.ticketHolder.firstname,
+      lastname: this.ticketHolder.lastname,
+    })
   }
 }

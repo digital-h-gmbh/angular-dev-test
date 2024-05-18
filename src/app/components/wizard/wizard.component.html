@@ -14,6 +14,7 @@
       @case (wizardStep.BillHolderForm) {
         <app-bill-holder-form
           [formValue]="billHolder"
+          [ticketHolder]="ticketHolder"
           (formChange)="setBillHolder($event)"
           (stepBack)="setCurrentWizardStep(wizardStep.TicketHolderForm)"
           (nextStep)="setCurrentWizardStep(wizardStep.OrderSummary)"></app-bill-holder-form>
