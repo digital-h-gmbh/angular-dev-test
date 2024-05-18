@@ -12,6 +12,11 @@
   </div>
 }
 <hr class="my-4">
+<ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Ticketoption', value: ticketOption | ticketOption }
+   }"></ng-container>
+
+<hr class="my-4">
 @if (billHolder) {
   <div class="font-bold text-lg mb-2">Rechnungsinhaber</div>
   <div class="flex flex-column gap-2">
@@ -45,6 +50,7 @@
             class="w-full md:w-auto"
             styleClass="w-full"
             (onClick)="emitSubmitWizard()"
+            [loading]="submitLoading"
             [label]="'Bestellen'"></p-button>
 </div>
 

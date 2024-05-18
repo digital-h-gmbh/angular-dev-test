@@ -1,6 +1,18 @@
 <div class="purchase-list-container">
-  <h1>Bestellungen</h1>
-  <p-table [value]="(purchaseList$ | async) || []">
+  <h1>Bestellungen @if (listLoading) {
+    werden geladen ...
+  } @else {
+    ({{ pagination.totalItems }})
+  }</h1>
+  <p-table [value]="(purchaseList$ | async) || []"
+           [lazy]="true"
+           [loading]="listLoading"
+           [totalRecords]="pagination.totalItems"
+           [paginator]="true"
+           [rows]="pagination.pageLimit"
+           [showCurrentPageReport]="true"
+           (onPage)="loadNextPage($event.first)"
+           currentPageReportTemplate="{first} bis {last} von {totalRecords} Bestellungen">
     <ng-template pTemplate="header">
       <tr>
         <th>Ticketinhaber</th>

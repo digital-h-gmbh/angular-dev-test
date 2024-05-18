@@ -1,8 +1,5 @@
-<h1>Bestellprozess</h1>
-
-<p>wizard to be implemented in task 1</p>
-
 <div class="wizard-container">
+  <h1>Bestellprozess</h1>
   <div class="flex flex-column bg-gray-100 p-5">
     @switch (currentWizardStep) {
       @case (wizardStep.TicketHolderForm) {
@@ -30,6 +27,8 @@
         <app-order-summary
           [ticketHolder]="ticketHolder"
           [billHolder]="billHolder"
+          [ticketOption]="ticketOption"
+          [submitLoading]="submitWizardLoading"
           (stepBack)="setCurrentWizardStep(wizardStep.BillHolderForm)"
           (submitWizard)="submitWizard()"></app-order-summary>
       }

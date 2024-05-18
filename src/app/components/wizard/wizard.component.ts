@@ -8,6 +8,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ApiService } from '../../services/api.service';
 import { TicketOption } from '../../enums/ticket-option';
 import { TicketOptionsComponent } from './ticket-options/ticket-options.component';
+import { from, take } from 'rxjs';
 
 @Component({
   selector: 'app-wizard',
@@ -28,6 +29,7 @@ export class WizardComponent {
   ticketHolder: MaybeNull<ITicketHolder> = null;
   billHolder: MaybeNull<IBillHolder> = null;
   ticketOption: MaybeNull<TicketOption> = null;
+  submitWizardLoading = false;
 
   setCurrentWizardStep(step: WizardStep): void {
     this.currentWizardStep = step;
@@ -45,17 +47,31 @@ export class WizardComponent {
     this.ticketOption = value;
   }
 
+  setSubmitWizardLoading(loading: boolean): void {
+    this.submitWizardLoading = loading;
+  }
+
   submitWizard(): void {
-    if (!this.ticketHolder || !this.billHolder) {
+    if (!this.ticketHolder || !this.billHolder || this.submitWizardLoading) {
       return;
     }
-    this.apiService.store({
+    this.setSubmitWizardLoading(true);
+    from(this.apiService.store({
       ticketHolder: this.ticketHolder,
       invoicingHolder: this.billHolder,
       ticketOption: this.ticketOption,
-    });
-    this.resetWizard();
-    alert('Bestellprozess erfolgreich abgeschlossen');
+    })).pipe(take(1))
+      .subscribe({
+        next: (): void => {
+          alert('Bestellprozess erfolgreich abgeschlossen');
+          this.resetWizard();
+          this.setSubmitWizardLoading(false);
+        },
+        error: (): void => {
+          alert('Fehler beim abschließen des Bestellprozesses. Bitte versuche es erneut.');
+          this.setSubmitWizardLoading(false);
+        }
+      });
   }
 
   private resetWizard(): void {
