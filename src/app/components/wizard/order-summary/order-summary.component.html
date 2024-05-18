@@ -1,0 +1,56 @@
+<h2>Bestellübersicht</h2>
+
+@if (ticketHolder) {
+  <div class="font-bold text-lg mb-2">Ticketinhaber</div>
+  <div class="flex flex-column gap-2">
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Vorname', value: ticketHolder.firstname }
+   }"></ng-container>
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Nachname', value: ticketHolder.lastname }
+   }"></ng-container>
+  </div>
+}
+<hr class="my-4">
+@if (billHolder) {
+  <div class="font-bold text-lg mb-2">Rechnungsinhaber</div>
+  <div class="flex flex-column gap-2">
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Vorname', value: billHolder.firstname }
+   }"></ng-container>
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Nachname', value: billHolder.lastname }
+   }"></ng-container>
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Firma (optional)', value: billHolder.company ?? '-' }
+   }"></ng-container>
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Straße & HausNr.', value: billHolder.street }
+   }"></ng-container>
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'PLZ', value: billHolder.zip }
+   }"></ng-container>
+    <ng-container *ngTemplateOutlet="summaryItemTemplate; context: {
+    $implicit: { label: 'Ort', value: billHolder.city }
+   }"></ng-container>
+  </div>
+}
+<div class="flex flex-column gap-3 md:gap-5 md:flex-row md:justify-content-end w-full mt-5">
+  <p-button class="w-full md:w-auto"
+            styleClass="w-full"
+            [outlined]="true"
+            (onClick)="emitStepBack()"
+            [label]="'Zurück'"></p-button>
+  <p-button type="submit"
+            class="w-full md:w-auto"
+            styleClass="w-full"
+            (onClick)="emitSubmitWizard()"
+            [label]="'Bestellen'"></p-button>
+</div>
+
+<ng-template #summaryItemTemplate let-item>
+  <div class="flex flex-column md:flex-row">
+    <div class="w-full font-semibold md:font-normal md:max-w-15rem mb-2 md:mb-0">{{ item.label }}</div>
+    <div class="">{{ item.value }}</div>
+  </div>
+</ng-template>
