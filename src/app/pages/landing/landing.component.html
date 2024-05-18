@@ -2,4 +2,6 @@
 
 <p>Hier kannst du dein Ticket erwerben</p>
 
-<button routerLink="purchase">Ticket bestellen...</button>
+<button [routerLink]="routingPath.purchase">Ticket bestellen...</button>
+<button class="ml-2" [routerLink]="routingPath.purchaseList">Bestellungen einsehen...</button>
+

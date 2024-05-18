@@ -1,0 +1,28 @@
+<div class="purchase-list-container">
+  <h1>Bestellungen</h1>
+  <p-table [value]="(purchaseList$ | async) || []">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Ticketinhaber</th>
+        <th>Ticketoption</th>
+        <th>Rechnungsinhaber</th>
+        <th>Firma</th>
+        <th>Straße</th>
+        <th>PLZ</th>
+        <th>Ort</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-purchase>
+      <tr>
+        <td>{{ purchase.ticketHolder.firstname + ' ' + purchase.ticketHolder.lastname }}</td>
+        <td>{{ purchase.ticketOption | ticketOption }}</td>
+        <td>{{ purchase.invoicingHolder.firstname + ' ' + purchase.invoicingHolder.lastname }}</td>
+        <td>{{ purchase.invoicingHolder.company ?? '-' }}</td>
+        <td>{{ purchase.invoicingHolder.street }}</td>
+        <td>{{ purchase.invoicingHolder.zip }}</td>
+        <td>{{ purchase.invoicingHolder.city }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>

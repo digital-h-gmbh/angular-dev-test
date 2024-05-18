@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { RoutingPath } from '../../enums/routing-path';
 
 @Component({
   selector: 'app-landing',
@@ -11,5 +12,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './landing.component.scss'
 })
 export class LandingComponent {
-
+  readonly routingPath = RoutingPath;
 }
