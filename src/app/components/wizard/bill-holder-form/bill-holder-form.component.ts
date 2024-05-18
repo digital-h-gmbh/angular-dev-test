@@ -8,7 +8,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { BillHolderForm, IBillHolder, ITicketHolder } from '../../../services/dto.interface';
+import { BillHolderForm, IBillHolder, ITicketHolder } from '../../../interfaces/purchase.interface';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';

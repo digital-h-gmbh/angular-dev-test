@@ -1,9 +1,11 @@
-// TODO: specify the interface for the DTO object, that you use for storing and loading data.
 import { FormControl } from '@angular/forms';
+import { MaybeNull } from '../types/maybe-null';
+import { TicketOption } from '../enums/ticket-option';
 
-export interface Dto {
+export interface IPurchase {
   ticketHolder: ITicketHolder,
   invoicingHolder: IBillHolder,
+  ticketOption: MaybeNull<TicketOption>,
 }
 
 export interface ITicketHolder {

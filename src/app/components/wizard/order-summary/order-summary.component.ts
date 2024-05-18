@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MaybeNull } from '../../../types/maybe-null';
-import { IBillHolder, ITicketHolder } from '../../../services/dto.interface';
+import { IBillHolder, ITicketHolder } from '../../../interfaces/purchase.interface';
 import { NgTemplateOutlet } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 

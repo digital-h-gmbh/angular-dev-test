@@ -1,5 +1,6 @@
 export enum WizardStep {
   TicketHolderForm = 1,
-  BillHolderForm = 2,
-  OrderSummary= 3,
+  TicketOptions = 2,
+  BillHolderForm = 3,
+  OrderSummary= 4,
 }

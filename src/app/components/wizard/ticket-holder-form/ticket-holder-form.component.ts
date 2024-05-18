@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ITicketHolder, TicketHolderForm } from '../../../services/dto.interface';
+import { ITicketHolder, TicketHolderForm } from '../../../interfaces/purchase.interface';
 import { ButtonModule } from 'primeng/button';
 import { MaybeNull } from '../../../types/maybe-null';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';

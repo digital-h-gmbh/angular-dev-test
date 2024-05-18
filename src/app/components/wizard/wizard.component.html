@@ -8,15 +8,22 @@
       @case (wizardStep.TicketHolderForm) {
         <app-ticket-holder-form
           [formValue]="ticketHolder"
-          (nextStep)="setCurrentWizardStep(wizardStep.BillHolderForm)"
+          (nextStep)="setCurrentWizardStep(wizardStep.TicketOptions)"
           (formChange)="setTicketHolder($event)"></app-ticket-holder-form>
+      }
+      @case (wizardStep.TicketOptions) {
+        <app-ticket-options
+          [ticketOption]="ticketOption"
+          (ticketOptionChange)="setTicketOption($event)"
+          (stepBack)="setCurrentWizardStep(wizardStep.TicketHolderForm)"
+          (nextStep)="setCurrentWizardStep(wizardStep.BillHolderForm)"></app-ticket-options>
       }
       @case (wizardStep.BillHolderForm) {
         <app-bill-holder-form
           [formValue]="billHolder"
           [ticketHolder]="ticketHolder"
           (formChange)="setBillHolder($event)"
-          (stepBack)="setCurrentWizardStep(wizardStep.TicketHolderForm)"
+          (stepBack)="setCurrentWizardStep(wizardStep.TicketOptions)"
           (nextStep)="setCurrentWizardStep(wizardStep.OrderSummary)"></app-bill-holder-form>
       }
       @case (wizardStep.OrderSummary) {
